@@ -1,0 +1,49 @@
+.dog-breeds-list {
+    display: flex;
+    flex-direction: column;
+    row-gap: 0.5rem;
+    &__header {
+        display: flex;
+        position: sticky;
+        top: 0;
+        flex-direction: column;
+        background-color: aliceblue;
+        padding: 0.5rem 0 1rem 2rem;
+        &__input {
+            width: 10rem;
+        }
+    }
+    &__body {
+        .breed-list {
+            padding-right: 4rem;
+            columns: 2;
+            -webkit-columns: 2;
+            -moz-columns: 2;
+            &__item {
+                list-style: none;
+                border: 1px solid gray;
+                padding: 0.5rem;
+                text-align: center;
+                &.hasChildren {
+                    :hover {
+                        color: rgb(13,110,253, 1);;
+                    }
+                }
+                .active {
+                    color: rgb(13,110,253, 1);
+                }
+            }
+        }
+        .child-list {
+            margin-left: 0 !important;
+            padding-left: 0 !important;
+            border-top: 1px solid grey;
+            margin-top: 0.5rem;
+            &__item {
+                list-style: none;
+                padding: 0.2rem;
+                color: rgba(33, 37, 41, 0.75) !important;
+            }
+        }
+    }
+}

@@ -1,0 +1,18 @@
+<section class="dog-breeds-list">
+  <header class="dog-breeds-list__header">
+    <h1>Browse Dog Breads</h1>
+    <input type="text" (keyup)="searchBreed$.next($event)" class="dog-breeds-list__header__input" placeholder="Search">
+  </header>
+  <div class="dog-breeds-list__body">
+    <ul class="breed-list">
+      <li class="breed-list__item" *ngFor="let breed of dogBreeds | filterBreed: searchStr" [class.hasChildren]="breed.children.length" (click)="onBreedClick(breed)">
+        <span [class.active]="breed.showChildren">{{breed.name}}</span>
+        <ng-container *ngIf="breed.showChildren">
+          <ul class="child-list">
+            <li class="child-list__item" *ngFor="let child of breed.children">{{child}}</li>
+          </ul>
+        </ng-container>
+      </li>
+    </ul>
+  </div>
+</section>
